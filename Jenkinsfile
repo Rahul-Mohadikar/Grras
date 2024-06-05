@@ -16,7 +16,7 @@ pipeline{
 						if ( env.ENV =='QA'){
 					sh 'cp target/Grras.war /home/rahul/devops/apache-tomcat-9.0.88/webapps'
 					echo 'Deployment has been done!'}
-						else(env.ENV == ''UAT){
+						else(env.ENV == 'UAT'){
 					sh 'cd target/Grras.war /home/rahul/devops/apache-tomcat-3.9.6/webapps'
 					echo 'Deployment has been done!'}
 					echo 'Deployment failed!'}}}
