@@ -5,7 +5,7 @@ pipeline{
 		triggers{
 			pollSCM('* * * * *')}
 		stages{
-			stage(checlkout){
+			stage('checkout'){
 				steps{
 					checkout scm}}
 			stage('build'){
