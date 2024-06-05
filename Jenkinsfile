@@ -1,7 +1,7 @@
 pipeline{
 	agent any
 		parameters{
-		choice( name: 'ENV', Choices: ['QA','UAT','DEV'], description: 'pick any')}
+		choices( name: 'ENV', Choices: ['QA','UAT','DEV'], description: 'pick any')}
 		triggers{
 			pollscm('* * * * *')}
 		stages{
@@ -12,6 +12,7 @@ pipeline{
 				steps{
 					sh '/home/rahul/devops/apach-maven-3.9.6/bin/mvn install'}}
 			stage('deployment'){
+				steps{
 					script{
 						if ( env.ENV =='QA'){
 					sh 'cp target/Grras.war /home/rahul/devops/apache-tomcat-9.0.88/webapps'
@@ -19,5 +20,5 @@ pipeline{
 						else(env.ENV == 'UAT'){
 					sh 'cd target/Grras.war /home/rahul/devops/apache-tomcat-3.9.6/webapps'
 					echo 'Deployment has been done!'}
-					echo 'Deployment failed!'}}}
+					echo 'Deployment failed!'}}}}
 }
