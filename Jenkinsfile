@@ -1,7 +1,7 @@
 pipeline{
 	agent any
 		parameters{
-		choice( name: 'ENV', Choices: ['QA','UAT','DEV'], description: 'pick any enviornment')}
+		choice( name: 'ENV', choices: ['QA','UAT','DEV'], description: 'pick any enviornment')}
 		triggers{
 			pollSCM('* * * * *')}
 		stages{
